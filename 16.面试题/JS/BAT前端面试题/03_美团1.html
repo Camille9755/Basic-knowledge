@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_美团1</title>
+</head>
+<body>
+<!--
+1. 难度系数: ★★★
+2. 技术点:
+  1). 作用域与作用域链
+  2). 变量查找
+-->
+<script type="text/javascript">
+
+  var fn = function () {
+    console.log(fn)
+  }
+  fn() // ? function定义
+
+  var obj = {
+    fn2: function () {
+      // console.log(fn2)
+      // 想输出fn2属性的值
+      console.log(this.fn2) // obj.fn2也行, 但比较死
+    }
+  }
+  obj.fn2() //  ? 报错
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<style type="text/css">
+			html,body{height: 100%;overflow: hidden;}
+			html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+			a{text-decoration: none;display: block;}
+			li{list-style: none;}
+			img{display: block;}
+			
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			
+			#head{width:1100px;height: 80px;margin: 0 auto;position: relative;}
+			#head > .logo{float:left;margin-top: 30px;}
+			#head > .nav{float: right;margin-top: 50px;}
+			#head > .nav >.list li{float: left;margin-left: 40px; position: relative;}
+			#head > .nav >.list li .up{position:absolute;color: #000000; width:0px;overflow: hidden;transition: 1s width;}
+			#head > .nav >.list li:hover .up{width:100%}
+			#head > .arrow{width:21px;height: 11px;position: absolute;bottom: -11px;left:50%;
+							background-image: url(img/menuIndicator.png);transition:1s;}
+			#content{width:1100px;height:500px;background: gray;margin: 0 auto;}
+		</style>
+	</head>
+	<body>
+		<section id="wrap">
+			<section id="head">
+				<h1 class="logo">
+					<a href="javascript:;">
+						<img src="img/logo.png"/>
+					</a>
+				</h1>
+				<nav class="nav">
+					<ul class="list clearfix">
+						<li>
+							<a href="javascript:;">
+								<div class="up"><img src="img/home_gruen.png"/></div>
+								<div class="down"><img src="img/home.png"/></div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<div class="up">First</div>
+								<div class="down">First</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<div class="up">Second</div>
+								<div class="down">Second</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<div class="up">Third</div>
+								<div class="down">Third</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<div class="up">Fourth</div>
+								<div class="down">Fourth</div>
+							</a>
+						</li>
+					</ul>
+				</nav>				
+				<div class="arrow"></div>
+			</section>
+			<section id="content"></section>
+		</section>
+	</body>
+	<script>
+		window.onload = function(){
+			var liNodes=document.querySelectorAll('#head > .nav >.list li')
+			var firstLiNode=liNodes[0]
+			var upNodes=document.querySelectorAll("#head > .nav >.list li .up")
+			var firstUpNode=upNodes[0]
+			var arrow = document.querySelector("#head > .arrow")
+			
+			firstUpNode.style.width="100%"
+			arrow.style.left=firstLiNode.offsetLeft+firstLiNode.offsetWidth/2-arrow.offsetWidth/2 +'px'
+			for(var i=0;i<liNodes.length;i++){
+				liNodes[i].index = i 
+				liNodes[i].onclick=function(){
+					for(var j=0;j<upNodes.length;j++){
+						upNodes[j].style.width=""
+					}
+					arrow.style.left= liNodes[this.index].offsetLeft+liNodes[this.index].offsetWidth/2-arrow.offsetWidth/2 +'px'
+					upNodes[this.index].style.width="100%"
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_阿里1</title>
+</head>
+<body>
+<!--
+1. 难度系数: ★★★
+2. 技术点:
+  1). 变量提升
+  2). 函数提升
+  3). 预处理
+-->
+<script type="text/javascript">
+
+  // 预热一
+  var a = 2
+  function fn() { // 预计处理:
+    /*
+    var a;
+     console.log(a)
+     a = 3
+    */
+    console.log(a)
+    var a = 3
+  }
+  fn() // ?
+
+  function fn2() { // 预计处理:
+    console.log(a)
+    a = 3  // a是全局变量
+  }
+  fn2() // ?
+
+  // 预热二   预计处理是变量先还是函数先?  变量--->函数
+  function b() {
+  }
+  var b
+  console.log(typeof b) // ? // function
+
+/***********************************************/
+
+
+/*
+ var c
+ function c(c) {
+ console.log(c)
+ var c = 3
+ }
+ c = 1
+ console.log(c) // 1
+ c(2) //报错
+ */
+
+  var c = 1
+  function c(c) {
+    console.log(c)
+    var c = 3
+  }
+  console.log(c) // ? 1
+  c(2) // ?
+
+/*
+1. 收集用var声明变量
+2. 收集用function声明函数
+函数与变量区别: 名=函数  名=非函数
+ */
+</script>
+</body>
+</html>

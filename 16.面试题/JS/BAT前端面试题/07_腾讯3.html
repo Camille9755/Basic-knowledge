@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_腾讯3</title>
+</head>
+<body>
+
+<button>测试1</button>
+<button>测试2</button>
+<button>测试3</button>
+<!--
+1. 难度系数: ★★★
+2. 技术点:
+  1). DOM事件处理
+  2). 闭包
+-->
+<script type="text/javascript">
+  /*
+   需求: 点击某个按钮, 提示"第n个"
+   问题: 下面的实现代码是否正确, 如果不正确, 请正确实现
+   */
+  /*var btns = document.getElementsByTagName('button')
+  for(var i=0,length=btns.length;i<length;i++) { // i是一个全局变量, 遍历后是3
+    var btn = btns[i]
+    btn.onclick = function () {
+      alert('第'+(i+1)+'个')
+    }
+  }*/
+
+  var btns = document.getElementsByTagName('button')
+  for(var i=0,length=btns.length;i<length;i++) { // i是一个全局变量, 遍历后是3
+    (function (i) {
+      var btn = btns[i]
+      btn.onclick = function () {
+        alert('第'+(i+1)+'个')
+      }
+    })(i) // 使用了闭包--->内存中产生了1+3个i
+  }
+
+
+  function fn1() {
+    var a = 2
+    function fn2 () {
+      a++
+      console.log(a)
+    }
+    return fn2
+  }
+  var f = fn1()
+  f()
+  f()
+
+
+
+</script>
+</body>
+
+</html>

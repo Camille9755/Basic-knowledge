@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>12_滴滴1</title>
+</head>
+<body>
+
+<!--
+1. 难度系数: ★★★★★
+2. 技术点:
+  1). 闭包
+  2). 作用域与作用域链
+  3). 变量查找
+-->
+<script type="text/javascript">
+  function fun(n, o) {
+    console.log(o)
+    return {
+      fun: function (m) {
+        return fun(m, n)
+      }
+    }
+  }
+
+  // 测试一: undefined ? ? ?
+  var a = fun(0)
+  a.fun(1)
+  a.fun(2)
+  a.fun(3)
+
+  // 测试二: undefined ? ? ?
+  var b = fun(0).fun(1).fun(2).fun(3)
+
+  // 测试三: undefined ? ? ?
+  var c = fun(0).fun(1)
+  c.fun(2)
+  c.fun(3)
+
+</script>
+</body>
+</html>

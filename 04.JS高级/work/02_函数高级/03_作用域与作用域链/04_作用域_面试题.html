@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_作用域_面试题</title>
+</head>
+<body>
+<script type="text/javascript">
+  var x = 10;
+  function fn() {
+    console.log(x);
+  }
+  function show(f) {
+    var x = 20;
+    f();
+  }
+  show(fn);
+
+/*
+查找变量时是沿着作用域链查找的，而作用域链是在代码定义时就已经确定的，与调用位置无关，
+因此找x时，在fn中找不到，就会去外部作用域，即全局作用域中找，所以输出10
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.1-px(@color){
+    position: relative;
+    &:before{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 1px;
+        background: @color;
+        @media only screen (-webkit-device-pixel-ratio:2){
+            transform: translateY(0.5);
+        }
+        @media only screen (-webkit-device-pixel-ratio:3){
+            transform: translateY(0.33333333);
+        }
+    }
+}

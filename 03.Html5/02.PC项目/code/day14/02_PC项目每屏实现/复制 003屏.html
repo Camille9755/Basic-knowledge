@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<style type="text/css">
+			html,body{height: 100%;overflow: hidden;}
+			html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+			a{text-decoration: none;display: block;}
+			li{list-style: none;}
+			img{display: block;}
+			
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.commonTitle{ color:#509ef0; font-size:80px; line-height:0.9; 
+							font-weight:bold; letter-spacing:-5px;
+						}
+			
+			#wrap{background: gray;position: relative;}
+			#head{background: white;width: 100%;position: relative;}
+			#head > .headMain{width:1100px;height: 80px;margin: 0 auto;}
+			#head > .headMain .logo{float:left;margin-top: 30px;}
+			#head > .headMain .nav{float: right;margin-top: 50px;}
+			#head > .headMain .nav >.list li{float: left;margin-left: 40px; position: relative;}
+			#head > .headMain .nav >.list li .up{position:absolute;color: #000000; width:0px;
+											overflow: hidden;transition: 1s width;}
+			#head > .headMain .nav >.list li:hover .up{width:100%;}
+			#head > .arrow{width:21px;height: 11px;position: absolute;bottom: -11px;left:50%;
+							background-image: url(img/menuIndicator.png);transition:1s;z-index:2;}
+							
+			#content{width:100%;height: 300px;background: gray;margin: 0 auto;position: relative;
+											overflow: hidden;}
+			#content > .list{position: absolute;left: 0;top: 0;width: 100%; transition: 1s top;}
+			#content > .list > li{position: relative;background-position: 50% 50%!important;}
+			#content > .list > li > div{width:1100px;height: 520px;
+										position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
+										
+			#content > .list .home{background: url(img/bg1.jpg) no-repeat;}	
+			#content > .list .First{background: url(img/bg2.jpg) no-repeat;}						
+			#content > .list .Second{background: url(img/bg3.jpg) no-repeat;}
+			#content > .list .Third{background: url(img/bg4.jpg) no-repeat;}
+			#content > .list .Fourth{background: url(img/bg5.jpg) no-repeat;}
+			
+			#content > .list .Second .works1{margin: 50px 0px 100px 50px;}
+			#content > .list .Second .works2{ margin-left:50px;}
+			#content > .list .Second .works2 .item{float: left; margin:0 1px;width:220px;
+											height: 133px;position: relative;overflow: hidden;}
+			#content > .list .Second .works2 .item:last-child{width:332px;height: 133px;}
+			
+			#content > .list .Second .works2 .item .mask{background: rgba(25,25,25,0.8);color: white;
+										position: absolute;left: 0;top: 0;width:100%;height: 100%;
+										box-sizing:border-box;padding: 15px;opacity: 0;
+										transition: 1s opacity;}
+			#content > .list .Second .works2 .item .mask .icon{width:32px;height: 34px;margin:10px auto;
+										background: url(img/zoomico.png) no-repeat;}
+			#content > .list .Second .works2 .item img{transition: 1s transform;}						
+			#content > .list .Second .works2 .item:hover .mask{opacity: 0.8;}	
+			#content > .list .Second .works2 .item:hover img{transform:rotate(30deg) scale(1.5);}						
+			#content > .list .Second .works2 .item .mask .icon:hover{background-position: 0 -36px;}
+		
+	</head>
+	<body>
+		<section id="wrap">
+			<header id="head">
+				<div class="headMain">
+					<h1 class="logo">
+						<a href="javascript:;">
+							<img src="img/logo.png"/>
+						</a>
+					</h1>
+					<nav class="nav">
+						<ul class="list clearfix">
+							<li>
+								<a href="javascript:;">
+									<div class="up"><img src="img/home_gruen.png"/></div>
+									<div class="down"><img src="img/home.png"/></div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">First</div>
+									<div class="down">First</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">Second</div>
+									<div class="down">Second</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">Third</div>
+									<div class="down">Third</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">Fourth</div>
+									<div class="down">Fourth</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>				
+				<div class="arrow"></div>
+			</header>
+			<section id="content">
+				<ul class="list">
+					<li class="home">
+						<div>home</div>
+					</li>
+					<li class="First">
+						<div>First</div>
+					</li>
+					<li class="Second">
+						<div>
+							<header class="works1 commonTitle">
+								<span>FirstLine</span><br />
+								<span>SecondLine</span><br />
+								<span>ThirdLine</span><br />
+							</header>
+							<div class="works2">
+								<div class="item">
+									<img src="img/worksimg1.jpg" />
+									<div class="mask">
+										<span>FirstDiv</span>
+										<div class="icon"></div>
+									</div>
+								</div>
+								<div class="item">
+									<img src="img/worksimg2.jpg" />
+									<div class="mask">
+										<span>SecondDiv</span>
+										<div class="icon"></div>
+									</div>
+								</div>
+								<div class="item">
+									<img src="img/worksimg3.jpg" />
+									<div class="mask">
+										<span>ThirdDiv</span>
+										<div class="icon"></div>
+									</div>
+								</div>
+								<div class="item">
+									<img src="img/worksimg4.jpg" />
+									<div class="mask">
+										<span>FourthDiv</span>
+										<div class="icon"></div>
+									</div>
+								</div>							
+							</div>
+							<div class="works3"></div>
+						</div>
+					</li>
+					<li class="Third">
+						<div>Third</div>
+					</li>
+					<li class="Fourth">
+						<div>Fourth</div>
+					</li>
+				</ul>
+			</section>
+		</section>
+	</body>
+	<script>
+		window.onload = function(){
+			var liNodes=document.querySelectorAll('#head >.headMain .nav >.list li')
+			var firstLiNode=liNodes[0]
+			var upNodes=document.querySelectorAll("#head >.headMain .nav >.list li .up")
+			var firstUpNode=upNodes[0]
+			var arrow = document.querySelector("#head > .arrow")
+			
+			var head=document.querySelector("#head")
+			var content=document.querySelector("#content")
+			var cLiNodes=document.querySelectorAll("#content > .list > li")
+			var cList=document.querySelector("#content > .list ")
+			
+			var now=0
+			var timer=0
+			window.onresize=function(){
+				contentBind();
+				cList.style.top= -now*(document.documentElement.clientHeight-head.offsetHeight)+"px"
+				arrow.style.left= liNodes[now].offsetLeft+liNodes[now].offsetWidth/2-arrow.offsetWidth/2 +'px'
+			}
+			
+			if(content.addEventListener){
+				content.addEventListener("DOMMouseScroll",function(ev){
+					ev=ev||event
+					timer=setTimeout(function(){
+				    	fn(ev)
+				    },200)	
+				})
+			}
+			content.onmousewheel=function(ev){
+				    ev=ev||event
+				    clearTimeout(timer)
+				    timer=setTimeout(function(){
+				    	fn(ev)
+				    },200)			
+			}
+			function fn(ev){
+				ev=ev||event
+				var dir=""
+				if(ev.wheelDelta){
+					dir=ev.wheelDelta>0?"up":"down"
+				}else if(ev.detail){
+					dir=ev.detail<0?"up":"down"
+				}
+				
+				switch (dir){
+					case "up":
+					    if(now>0){
+					    	now--
+					    	move(now)
+					    }
+						break;
+					case "down":
+						if(now<cLiNodes.length){
+							now++
+							move(now)
+						}
+					    break;
+				}
+			}
+			
+			
+			contentBind();
+			function contentBind(){
+				content.style.height=document.documentElement.clientHeight-head.offsetHeight+"px"
+				for(var i=0;i<cLiNodes.length;i++){
+					cLiNodes[i].style.height=document.documentElement.clientHeight-head.offsetHeight+"px"
+				}
+			}
+			
+			headBind();
+			function headBind(){
+				firstUpNode.style.width="100%"
+				arrow.style.left=firstLiNode.offsetLeft+firstLiNode.offsetWidth/2-arrow.offsetWidth/2 +'px'
+				for(var i=0;i<liNodes.length;i++){
+					liNodes[i].index = i 
+					liNodes[i].onclick=function(){
+						move(this.index)
+						now=this.index
+					}
+				}
+			}
+			
+			move(2)
+			function move(index){
+				for(var j=0;j<upNodes.length;j++){
+					upNodes[j].style.width=""
+				}
+				arrow.style.left= liNodes[index].offsetLeft+liNodes[index].offsetWidth/2-arrow.offsetWidth/2 +'px'
+				upNodes[index].style.width="100%"
+				cList.style.top= -index*(document.documentElement.clientHeight-head.offsetHeight)+"px"
+			}
+		}
+	</script>
+</html>

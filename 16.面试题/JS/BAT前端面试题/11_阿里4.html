@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>11_阿里4</title>
+</head>
+<body>
+
+<!--
+1. 难度系数: ★★★★
+2. 技术点:
+  1). 变量提升
+  2). this
+  3). 运算符优先级
+  4). 原型与原型链
+  5). 全局变量污染
+-->
+<script type="text/javascript">
+
+  function Person() {
+    getAge = function () {
+      console.log(10)
+    }
+    return this
+  }
+
+  Person.getAge = function () {
+    console.log(20)
+  }
+
+  Person.prototype.getAge = function () {
+    console.log(30)
+  }
+
+  var getAge = function () {
+    console.log(40)
+  }
+
+  function getAge() {
+    console.log(50)
+  }
+
+
+  Person.getAge() // ?
+  getAge() // ?
+  Person().getAge() // ?
+  getAge() // ?
+  new Person.getAge() // ?
+  new Person().getAge() // ?
+
+</script>
+</body>
+</html>

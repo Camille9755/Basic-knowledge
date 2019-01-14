@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+      overflow: hidden;
+    }
+    #oc{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background: #ffc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="oc" width="400px" height="300px"></canvas>
+
+  <script>
+    window.onload = function () {
+      var oc = document.querySelector("#oc");
+
+      if(oc.getContext){
+        var ctx=oc.getContext('2d');
+
+        ctx.save();
+        ctx.fillStyle = "pink";
+        ctx.beginPath();
+        ctx.fillRect(100,100,100,100);
+        ctx.restore();
+
+        var imgDatas = ctx.getImageData(0,0,oc.width,oc.height);
+
+        for(var i=0;i<imgDatas.height;i++){
+          setInfo(imgDatas,30,i,[0,0,0,255]);
+        }
+        ctx.putImageData(imgDatas,0,0);
+      }
+
+      function getInfo(imgDatas,x,y) {
+        var w = imgDatas.width;
+        var h = imgDatas.height;
+        var datas = imgDatas.data;
+        var color=[];
+
+        color[0] = datas[(y*w+x)*4];
+        color[1] = datas[(y*w+x)*4+1];
+        color[2] = datas[(y*w+x)*4+2];
+        color[3] = datas[(y*w+x)*4+3];
+        return color;
+      }
+      function setInfo(imgDatas,x,y,colors) {
+        var w = imgDatas.width;
+        var h = imgDatas.height;
+        var datas = imgDatas.data;
+
+        datas[(y*w+x)*4] = colors[0];
+        datas[(y*w+x)*4+1]= colors[1];
+        datas[(y*w+x)*4+2]= colors[2];
+        datas[(y*w+x)*4+3]= colors[3];
+      }
+    }
+  </script>
+</body>
+</html>

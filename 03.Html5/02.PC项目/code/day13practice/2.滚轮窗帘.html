@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+			}
+			.test{
+				width: 100%;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var testNode = document.querySelector(".test")
+			
+			if(testNode.addEventListener){
+				testNode.addEventListener('DOMMouseScroll',fn)
+			}
+			testNode.onmousewheel=fn
+			
+			function fn(ev){
+				var dir=""
+				ev = ev||event
+				if(ev.wheelDelta){
+					dir= ev.wheelDelta>0?"up":"down"
+				}
+				if(ev.detail){
+					dir= ev.detail<0?"up":"down"
+				}
+				
+				switch(dir){
+					case "up":
+					testNode.style.height=testNode.offsetHeight-10+'px'
+					break
+					
+					case "down":
+					testNode.style.height=testNode.offsetHeight+10+'px'
+					break
+				}
+				
+				if(ev.preventDefault){
+					ev.preventDefault()
+				}
+				return false
+			}
+		}
+	</script>
+</html>
