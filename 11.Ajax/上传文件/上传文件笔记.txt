@@ -1,0 +1,88 @@
+
+
+1. 服务器端工作
+	1. multer
+		1. .single('avatar')	name
+	
+	
+2. 客户端工作
+	1. form 表单上传文件
+		1. form 表单
+			1. action	路由
+			2. method	post
+			3. enctype	"multipart/form-data"
+		2. input 标签
+			1. type 	file
+			2. name 	avatar
+	2. ajax 异步上传文件	
+		1. 服务器和普通上传文件完全相同
+		2. 客户端
+			1. 正常 ajax 对象
+			2. FormData 对象
+				把 formEle 装进去
+				send 实例发出去
+
+	3. form + iframe 方式
+		1. 动态创建 form 和 iframe元素
+		2. 把form 装到 iframe 里面
+		3. 给页面的 input 标签添加一个 change 事件监听
+		4. 当用用户选择文件的时候，自动提交 from 表单
+	
+
+
+## 多文件上传
+1. 服务器
+	1. fields 函数
+	2. arr
+2. 客户端
+	1. form 表单
+		1. 属性
+			1. action
+			2. method
+			3. enctype
+		2. input 
+			多个 	input 标签 	
+			name	可以重复
+			type	file
+		
+
+		
+## 下载
+1. 服务器端
+	1. res.download();
+2. 客户端
+	1. get 请求
+
+
+1. 思路
+	1. 资源的位置：浏览器内部
+	2. Blob		浏览器内部的数据
+	3. myURL = URL.createObjectURL(myBlob);
+	4. a 标签的 href 被赋予 myURL
+	5. a 标签被点击
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

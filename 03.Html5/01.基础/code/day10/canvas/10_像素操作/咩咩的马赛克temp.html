@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+      overflow: hidden;
+    }
+    #msk{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%,-50%,0);
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+ <canvas id="msk"></canvas>
+
+ <script>
+   window.onload=function () {
+     var oc = document.querySelector("#msk");
+     if(oc.getContext){
+       var ctx = oc.getContext('2d')
+
+       var img=new Image()
+       img.src="2.png"
+       img.onload=function () {
+         oc.width=img.width*2;
+         oc.height=img.height
+         draw()
+       }
+       
+       function draw() {
+         ctx.drawImage(img,0,0)
+
+         var oldimgdata = ctx.getImageData(0,0,img.width,img.height)
+         var newimgdata = ctx.createImageData(img.width,img.height)
+
+         var size=5
+         for( var i=0;i<oldimgdata.width/size;i++){
+           for(var j=0;j<oldimgdata.height/size;j++){
+
+             var x = i*size + Math.floor(Math.random()*size)
+             var y = j*size + Math.floor(Math.random()*size)
+             var color = getInfo(oldimgdata,x,y);
+
+             for(var a=0;a<size;a++){
+               for(var b=0;b<size;b++){
+                 setInfo(newimgdata,i*size+a,j*size+b,color)
+               }
+             }
+           }
+         }
+         ctx.putImageData(newimgdata,oc.width/2,0)
+       }
+
+       function getInfo(imgDatas,x,y) {
+         var w = imgDatas.width;
+         var h = imgDatas.height;
+         var datas = imgDatas.data;
+         var color=[];
+
+         color[0] = datas[(y*w+x)*4];
+         color[1] = datas[(y*w+x)*4+1];
+         color[2] = datas[(y*w+x)*4+2];
+         color[3] = datas[(y*w+x)*4+3];
+
+         return color;
+       }
+       function setInfo(imgDatas,x,y,colors) {
+         var w = imgDatas.width;
+         var h = imgDatas.height;
+         var datas = imgDatas.data;
+
+         datas[(y*w+x)*4] = colors[0];
+         datas[(y*w+x)*4+1]= colors[1];
+         datas[(y*w+x)*4+2]= colors[2];
+         datas[(y*w+x)*4+3]= colors[3];
+       }
+     }
+   }
+
+ </script>
+</body>
+</html>

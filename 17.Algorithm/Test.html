@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ttt</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+function List() {       
+    this.head = new Node("head");
+    this.find = find;
+    this.insert = insert;
+    this.remove = remove;
+    this.display = display;
+    this.findPrevious = findPrevious; 
+    this.printListFromTailToHead = printListFromTailToHead;    
+}
+
+function Node(element) {
+    this.element = element;
+    this.next = null;
+}
+
+function find(item) {
+    var currNode = this.head;
+    while(currNode.element != item) {
+        currNode = currNode.next;
+    }
+    return currNode;//返回的是一个对象
+}
+
+function insert(newElement,item) {
+    var newNode = new Node(newElement);
+    var current = this.find(item);
+    if(current == null) 
+        return console.log("can't find the item");
+    newNode.next = current.next;
+    current.next = newNode;
+}
+
+function remove(item) {
+    var prevNode = this.findPrevious(item);
+    if(prevNode.next != null)
+       prevNode.next = prevNode.next.next;
+}
+function findPrevious(item) {
+    var currNode = this.head;
+    while(currNode.next != null && currNode.next.element != item) {
+        currNode = currNode.next;
+    }
+    return currNode;
+}
+
+function display() {
+    var current = this.head;
+    while(current != null) {
+        console.log(current.element);
+        current = current.next;
+    }
+}
+
+function printListFromTailToHead(head)
+{
+    // write code here
+    var arr=[];
+    var me=head;
+    while(me){
+        arr.push(me.element);
+        me=me.next;
+    }
+    return arr.reverse();
+}
+
+var test= new List();
+test.insert("new","head");
+test.insert("new2","head");
+var header=test.head;
+var result=test.printListFromTailToHead(header);
+console.log(result);
+function deleteDuplication(pHead)
+{
+    // write code here
+    if(pHead==null){
+        return null;
+    }
+    var newHead = new listNode('head');
+    newHead.next = pHead;
+    var pHead = newHead;
+    var qHead = pHead.next;
+    while(qHead){
+        while(qHead.next!=null&&qHead.val == qHead.next.val){
+            qHead = qHead.next;
+        }
+        if(pHead == qHead){
+            pHead = qHead;
+            qHead = qHead.next;
+        }else{
+            qHead = qHead.next;
+            pHead.next = qHead;
+        }
+    }
+    return newHead.next;
+}
+</script>
+</body>
+</html>

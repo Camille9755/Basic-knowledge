@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      min-width: 600px;
+    }
+    #content{
+
+      overflow: hidden;
+    }
+    #header,#footer{
+      height: 20px;
+      text-align: center;
+      border: 1px solid  deeppink;
+      background: gray;
+    }
+    #content .left,#content .right,#content .middle{
+      padding-bottom: 10000px;
+      margin-bottom: -10000px;
+    }
+    #content .left{
+      float: left;
+      width: 200px;
+      background: aqua;
+      margin-left: -100%;
+
+    }
+    #content .right{
+      float: left;
+      width: 200px;
+      background: aqua;
+      margin-left: -200px;
+
+    }
+    #content .middle{
+      float: left;
+      width: 100%;
+      background: #ccc;
+    }
+    #content .middle .innerMiddle{
+      padding: 0 200px;
+    }
+    .clearfix{
+      zoom: 1;
+    }
+    .clearfix:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+    <div id="header">header</div>
+        <div id="content" class="clearfix">
+          <div class="middle">
+            <div class="innerMiddle">
+              <h4>middle</h4>
+              <h4>middle</h4>
+              <h4>middle</h4><h4>middle</h4><h4>middle</h4><h4>middle</h4>
+              <h4>middle</h4><h4>middle</h4><h4>middle</h4>
+              <h4>middle</h4><h4>middle</h4>
+              <h4>middle</h4>
+              <h4>middle</h4>
+              <h4>middle</h4>
+              <h4>middle</h4>
+            </div>
+
+          </div>
+          <div class="left">left</div>
+          <div class="right">right</div>
+        </div>
+    <div id="footer">footer</div>
+</body>
+</html>
