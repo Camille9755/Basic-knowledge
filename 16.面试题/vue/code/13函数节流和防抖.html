@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			函数节流:一个函数执行一次后,只有大于设定的执行周期后オ会执行第二次。
+			有个需要频繁触发的函数,出于优化性能角度,在规定时间内,只让函数触发的第一次生效,后面不生效
+			滚轮滑动
+			*/
+			function throttle(fn,delay) {
+				var lastTime = 0
+				//在闭包中延长lastTime的生命周期
+				return function () {
+					var nowTime = Date.now()
+					if(nowTime-lastTime>delay){
+						fn.apply(this)
+						lastTime = nowTime
+					}
+				}
+			}
+			/*
+			防抖函数：一个需要频繁触发的函数，在规定的时间内，只让最后一次生效，前面的不生效
+			多次点击按钮
+			*/
+			function debounce(fn,delay) {
+				var timer = null
+				return function () {
+					clearTimeout(timer)
+					timer = setTimeout(function () {
+						fn.apply(this)
+					},1000)
+				}
+			}
+		</script>
+	</body>
+</html>

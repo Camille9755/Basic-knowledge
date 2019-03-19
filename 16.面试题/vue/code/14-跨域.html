@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//设置script标签
+			var script = document.createElement('script')
+			//设置回调函数
+			function getData(data) {
+				//数据请求回来会被触发的函数
+				console.log(data)
+			}
+			//设置script的src属性，设置请求地址
+			script.src = 'https://localhost:3000?callback=getData'
+			//让script生效
+			document.body.appendChild(script)
+		</script>
+	</body>
+</html>
