@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button class="btn">点击1</button>
+		<button class="btn">点击2</button>
+		<button class="btn">点击3</button>
+		<script>
+			var btns = document.querySelectorAll('.btn')
+			for(var i=0;i<btns.length;i++){
+				;(function(i){
+					btns[i].onclick = function(){
+					console.log('点击第'+(i)+"个")
+				}
+				})(i)
+			}
+			//object构造函数模式
+			var obj = {}
+			obj.name = 'xxx'
+			obj.setName = function(name){
+				this.name = name
+			}
+			//对象字面量模式
+			var obj1 = {
+				name:'xxx',
+				setName:function(name){
+					this.name = name
+				}
+			}
+			//构造函数
+			function Person(name){
+				this.name = 'xxx'
+				this.setName = function(name){
+					this.name = name
+				}
+			}
+			new Person()
+			//构造函数加原型
+			function Person(name){
+				this.name = 'xxx'
+			}
+			Person.prototype.setName = function(name){
+					this.name = name
+				}
+			//工厂函数
+			function createPerson(name){
+				var obj = {
+					name:name,
+					setName:function(name){
+						this.name = name
+					}
+				}
+				return obj
+			}
+			//原型链继承
+			function Parent(){}
+			Parent.prototype.parentMethod = function(){
+				console.log('parent')
+			}
+			function Child(){
+			}
+			Child.prototype = new Parent()
+			Child.prototype.constructor = Child
+			Child.prototype.childMethod = function(){
+					console.log('child')
+			}
+			new Child()
+			//借用构造函数继承
+			function Parent(xxx){
+				this.xxx=xxx
+			}
+			function Child(xxx){
+				Parent.call(this,xxx)
+			}
+			new Child(xxx)
+			//组合继承
+			function Parent(a){
+				this.xxx=a
+			}
+			Parent.prototype.parentMethod = function(){
+				console.log('parent')
+			}
+			function Child(b){
+				Parent.call(this,b)
+			}
+			Child.prototype = new Parent()
+			Child.prototype.constructor = Child
+			var p =new Child('c') ///p.xxx = 'c'
+		</script>
+	</body>
+</html>

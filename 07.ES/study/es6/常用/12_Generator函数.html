@@ -28,11 +28,38 @@
   -->
 <script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
+    // 小试牛刀
+    function* generatorTest() {
+      console.log('函数开始执行');
+      yield 'hello';
+      console.log('函数暂停后再次启动');
+      yield 'generator';
+    }
+    // 生成遍历器对象
+    let Gt = generatorTest();
+    // 执行函数，遇到yield后即暂停
+    console.log(Gt); // 遍历器对象
+    let result = Gt.next(); // 函数执行,遇到yield暂停
+    console.log(result); // {value: "hello", done: false}
+    result = Gt.next(); // 函数再次启动
+    console.log(result); // {value: 'generator', done: false}
+    result = Gt.next();
+    console.log(result); // {value: undefined, done: true}表示函数内部状态已经遍历完毕
 
-    
-    // 对象的symbol.iterator属性  指向遍历器对象
+    // 对象的Symbol.iterator属性;
+    let myIterable = {};
+    myIterable[Symbol.iterator] = function* () {
+      yield 1;
+      yield 2;
+      yield 4;
+    };
+    for(let i of myIterable){
+      console.log(i);
+    }
+    let obj = [...myIterable];
+    console.log(obj);
 
-  
+    console.log('-------------------------------');
     // 案例练习
     /*
     * 需求：
@@ -41,10 +68,26 @@
     * 3、新闻内容获取失败则不需要再次发送请求。
     * 
     * */ 
+    function* sendXml() {
+      // url为next传参进来的数据
+     let url = yield getNews('http://localhost:3000/news?newsId=2');
+      yield getNews(url);
+    }
+    function getNews(url) {
+      $.get(url, function (data) {
+        console.log(data);
+        let commentsUrl = data.commentsUrl;
+        let url = 'http://localhost:3000' + commentsUrl;
+        // 当获取新闻内容成功，发送请求获取对应的评论内容
+        // 调用next传参会作为上次暂停是yield的返回值
+        sx.next(url);
+      })
+    }
 
 
-
-
+    let sx = sendXml();
+    // 发送请求获取新闻内容
+    sx.next();
 
     
 

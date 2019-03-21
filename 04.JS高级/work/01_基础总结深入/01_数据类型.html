@@ -5,7 +5,6 @@
   <title>01_数据类型</title>
 </head>
 <body>
-<!--
 1. 分类
   * 基本(值)类型
     * String: 任意字符串
@@ -25,14 +24,13 @@
     * 判断对象的具体类型
   * ===
     * 可以判断: undefined, null
--->
 
 <script type="text/javascript">
   //1. 基本
   // typeof返回数据类型的字符串表达
   var a
   console.log(a, typeof a, typeof a==='undefined',a===undefined )  // undefined 'undefined' true true
-  console.log(undefined==='undefined')
+  console.log(undefined==='undefined')  //false
   a = 4
   console.log(typeof a==='number')
   a = 'atguigu'
@@ -62,8 +60,8 @@
 
   console.log(typeof b1.b3==='function') // true
 
-  console.log(typeof b1.b2[2]==='function')
-  b1.b2[2](4)
+  console.log(typeof b1.b2[2]==='function')//true
+  b1.b2[2](4)//4
   console.log(b1.b3()())
 
 

@@ -5,8 +5,6 @@
   <title>06_IIFE</title>
 </head>
 <body>
-<!--
-
 匿名函数自调用
 1. 理解
   * 全称: Immediately-Invoked Function Expression
@@ -14,7 +12,6 @@
   * 隐藏实现
   * 不会污染外部(全局)命名空间
   * 用它来编码js模块
--->
 <script type="text/javascript">
   (function () { //匿名函数自调用
     var a = 3
@@ -36,7 +33,7 @@
   })()
 
   $().test() // 1. $是一个函数 2. $执行后返回的是一个对象
-
+	console.log($().test)
 
 </script>
 

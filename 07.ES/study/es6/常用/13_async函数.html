@@ -24,8 +24,51 @@
 -->
 <script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
-
+    async function timeout(ms) {
+      return new Promise(resolve => {
+        setTimeout(resolve, ms);
+      })
+    }
     
+    async function asyncPrint(value, ms) {
+      console.log('函数执行', new Date().toTimeString());
+      await timeout(ms);
+      console.log('延时时间', new Date().toTimeString());
+      console.log(value);
+    }
+
+    console.log(asyncPrint('hello async', 2000));
+    
+    // await 
+    async function awaitTest() {
+      let result = await Promise.resolve('执行成功');
+      console.log(result);
+      let result2 = await Promise.reject('执行失败');
+      console.log(result2);
+      let result3 = await Promise.resolve('还想执行一次');// 执行不了
+      console.log(result3);
+    }
+    awaitTest();
+  
+  
+    // 案例演示
+    async function sendXml(url) {
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          url,
+          type: 'GET',
+          success: data =>  resolve(data),
+          error: error => reject(error)
+        })
+      })
+    }
+
+    async function getNews(url) {
+      let result = await sendXml(url);
+      let result2 = await sendXml(url);
+      console.log(result, result2);
+    }
+    getNews('http://localhost:3000/news?id=2')
 
 </script>
 

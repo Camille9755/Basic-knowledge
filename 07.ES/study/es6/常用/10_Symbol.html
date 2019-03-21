@@ -32,8 +32,20 @@
 
 
 <script type="text/javascript">
-    
-
+    window.onload = function () {
+      let symbol = Symbol();
+      console.log(typeof symbol);
+      console.log(symbol);
+      
+      // 用作对象的属性(唯一)
+      let obj = {username: 'kobe', age: 39};
+      obj[symbol] = 'hello';
+      obj[symbol] = 'symbol';
+      console.log(obj);
+      for(let i in obj){
+        console.log(i);
+      }
+    }
 </script>
 
 </body>
