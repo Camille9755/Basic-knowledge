@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa51c9e7-7041-4970-818d-5b45f773f7da" name="Default Changelist" comment="" />
+    <list default="true" id="fa51c9e7-7041-4970-818d-5b45f773f7da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/ES笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/ES笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/01_严格模式.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/01_严格模式.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/02_JSON对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/02_JSON对象.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/03_1_Object扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/03_1_Object扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/03_2_Object扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/03_2_Object扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/04_Array扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/04_Array扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es5/05_Function扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es5/05_Function扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/其它/04_深度克隆.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/其它/04_深度克隆.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/01_let关键字.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/01_let关键字.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/02_const关键字.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/02_const关键字.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/03_变量的解构赋值.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/03_变量的解构赋值.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/04_模板字符串.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/04_模板字符串.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/05_简化的对象写法.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/05_简化的对象写法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/06_箭头函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/06_箭头函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/07_点点点运算符.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/07_点点点运算符.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/08_形参默认值.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/08_形参默认值.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07.ES/study/es6/常用/09_Promise对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/07.ES/study/es6/常用/09_Promise对象.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/16.面试题/vue/code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/16.面试题/vue/code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/16.面试题/vue/code/12. 微任务和宏任务/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/16.面试题/vue/code/12. 微任务和宏任务/main.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -11,31 +32,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="2071144108">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="md" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Markdown" value="3" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/03.Html5/01.基础/笔记/html5/00_html5概述.md">
+        <entry file="file://$PROJECT_DIR$/13.Vue/code/VuexTest/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SECOND">
               <first_editor />
@@ -46,16 +46,8 @@
       </file>
     </leaf>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/02.CSS3/3+Less+BootStrap/work/day07/02_bootstrap/bootstrap-3.3.7/bootstrap-3.3.7/package.json" />
-    </packageJsonPaths>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="4" />
@@ -67,23 +59,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="2019Prepare" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019Prepare" type="462c0819:PsiDirectoryNode" />
+              <item name="2019_prepare" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019_prepare" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="E:/front/AtGuiGu/GuiGuReact/code" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -111,22 +104,20 @@
       <option name="presentableId" value="Default" />
       <updated>1547451432677</updated>
       <workItem from="1547451435768" duration="767000" />
+      <workItem from="1554691312166" duration="199000" />
+      <workItem from="1554955234604" duration="29000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="767000" />
+    <option name="totallyTimeSpent" value="995000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -134,19 +125,24 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Mongo Explorer" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/02.CSS3/3+Less+BootStrap/笔记/css3/01_CSS选择器.md">
+    <entry file="file://$PROJECT_DIR$/02.CSS3/3+Less+BootStrap/笔记/css3/01_CSS选择器.md" />
+    <entry file="file://$PROJECT_DIR$/02.CSS3/3+Less+BootStrap/笔记/css3/02_CSS媒体查询.md" />
+    <entry file="file://$PROJECT_DIR$/03.Html5/01.基础/笔记/html5/00_html5概述.md" />
+    <entry file="file://$PROJECT_DIR$/13.Vue/code/VueTest/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SECOND">
           <first_editor />
@@ -154,15 +150,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02.CSS3/3+Less+BootStrap/笔记/css3/02_CSS媒体查询.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03.Html5/01.基础/笔记/html5/00_html5概述.md">
+    <entry file="file://$PROJECT_DIR$/13.Vue/code/VuexTest/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SECOND">
           <first_editor />

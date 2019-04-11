@@ -13,7 +13,7 @@
 ## ES5
 1. **严格模式**
   * 运行模式: 正常(混杂)模式与严格模式
-  * 应用上严格式: 'strict mode';
+  * 应用上严格模式: 'use strict';
   * 作用: 
     * 使得Javascript在更严格的条件下运行
     * 消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为
@@ -53,6 +53,7 @@
   * 面试题: 区别bind()与call()和apply()?
       * fn.bind(obj) : 指定函数中的this, 并返回函数
       * fn.call(obj) : 指定函数中的this,并调用函数
+      * fn.call(obj,arg1,arg2),fn.apply(obj,arguments)
       
 6. Date扩展
   * Date.now() : 得到当前时间值

@@ -5,8 +5,7 @@
   <title>03_Object扩展</title>
 </head>
 <body>
-<!--
-ES5给Object扩展了好一些静态方法, 常用的2个:
+ES5给Object扩展了一些静态方法, 常用的2个:
 1. Object.create(prototype, [descriptors])
   * 作用: 以指定对象为原型创建新的对象
   * 为新的对象指定新的属性, 并对属性进行描述
@@ -17,10 +16,9 @@ ES5给Object扩展了好一些静态方法, 常用的2个:
 
 2. Object.defineProperties(object, descriptors)
   * 作用: 为指定对象定义扩展多个属性
-  * get ：用来获取当前属性值得回调函数
-  * set ：修改当前属性值得触发的回调函数，并且实参即为修改后的值
+  * get ：用来获取当前属性值的回调函数
+  * set ：修改当前属性值触发的回调函数，并且实参即为修改后的值
   * 存取器属性：setter,getter一个用来存值，一个用来取值
--->
 <script type="text/javascript">
     var obj = {name : 'curry', age : 29}
     var obj1 = {};

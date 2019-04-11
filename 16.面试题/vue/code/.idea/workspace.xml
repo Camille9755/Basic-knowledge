@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0dc8558-2b5e-403a-9705-67f9cd880e8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/ES笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/ES笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/01_严格模式.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/01_严格模式.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/02_JSON对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/02_JSON对象.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/03_1_Object扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/03_1_Object扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/03_2_Object扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/03_2_Object扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/04_Array扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/04_Array扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es5/05_Function扩展.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es5/05_Function扩展.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/其它/04_深度克隆.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/其它/04_深度克隆.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/01_let关键字.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/01_let关键字.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/02_const关键字.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/02_const关键字.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/03_变量的解构赋值.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/03_变量的解构赋值.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/04_模板字符串.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/04_模板字符串.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/05_简化的对象写法.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/05_简化的对象写法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/06_箭头函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/06_箭头函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/07_点点点运算符.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/07_点点点运算符.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/08_形参默认值.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/08_形参默认值.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/09_Promise对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07.ES/study/es6/常用/09_Promise对象.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12. 微任务和宏任务/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/12. 微任务和宏任务/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,29 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/笔记.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="144">
-                <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/14-跨域.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -70,7 +65,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -82,12 +76,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
@@ -121,17 +116,17 @@
       <updated>1552965625797</updated>
       <workItem from="1552965629805" duration="705000" />
       <workItem from="1552966404570" duration="1107000" />
+      <workItem from="1554691264050" duration="43000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1812000" />
+    <option name="totallyTimeSpent" value="1855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -162,9 +157,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/15node事件轮询.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/15node事件轮询.html" />
     <entry file="file://$PROJECT_DIR$/13函数节流和防抖.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -172,23 +165,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/16-执行上下文.html" />
+    <entry file="file://$PROJECT_DIR$/笔记.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1008">
+            <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/14-跨域.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16-执行上下文.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/笔记.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="144">
-            <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>

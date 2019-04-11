@@ -10,7 +10,6 @@
     <button id="btn2">测试箭头函数this_2</button>
 
 
-<!--
 * 作用: 定义匿名函数
 * 基本语法:
   * 没有参数: () => console.log('xxxx')
@@ -22,11 +21,11 @@
 
 * 箭头函数的特点：
     1、简洁
-    2、箭头函数没有自己的this，箭头函数的this不是调用的时候决定的，而是在定义的时候处在的对象就是它的this
+    2、箭头函数没有自己的this，箭头函数的this不是调用的时候决定的，
+    	而是在定义的时候处在的对象就是它的this
    3、扩展理解： 箭头函数的this看外层的是否有函数，
         如果有，外层函数的this就是内部箭头函数的this，
         如果没有，则this是window。
--->
 <script type="text/javascript">
   let fun = function () {
        console.log('fun()');

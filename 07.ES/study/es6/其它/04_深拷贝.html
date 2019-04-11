@@ -49,45 +49,32 @@
   // 深度克隆(复制)
 
   function getObjClass(obj) {
-  	/*Object.prototype.toString.call(boj)这个是用来判断数据类型，
-		如果obj是数字，得出的结果是[object Number]，从零开始数，第8位就是N，最后一位的前一位就是r，所以取得Number；
-		如果obj是字符串，得出结果是[object String]，第8位S,最后一位的前一位g，取得String*/
-    let result = Object.prototype.toString.call(obj).slice(8, -1);
-    console.log('---',result)
-    if(result === 'Null'){
-      return 'Null';
-    }else if(result === 'Undefined'){
-      return 'Undefined';
-    }else {
-      return result;
-    }
-  }
-  // for in 遍历数组的时候遍历的是下标
-  let testArr = [1,2,3,4];
-  for(let i in testArr){
-    console.log(i); // 对应的下标索引
+  	return Object.prototype.toString.call(obj).slice(8,-1)
   }
 
   // 深度克隆
   function deepClone(obj) {
-    let result, objClass = getObjClass(obj);
-    if(objClass === 'Object'){
-      result = {};
-    }else if(objClass === 'Array'){
-      result = [];
-    }else {
-      return obj; // 如果是其他数据类型不复制，直接将数据返回
-    }
-    // 遍历目标对象
-    for(let key in obj){
-      let value = obj[key];
-      if(getObjClass(value) === "Object" || 'Array'){
-        result[key] = deepClone(value);
-      }else {
-        result[key] = obj[key];
-      }
-    }
-    return result;
+   	let type = getObjClass(obj)
+   	let result
+   	if(type=='Object'){
+   		result = {}
+   	}else if(type=='Array'){
+   		result = []
+   	}else{
+   		return obj
+   	}
+   	
+   	for(index in obj){
+   		let value = obj[index]
+   		let valueType = getObjClass(obj[index])
+   		if(valueType==='Object'||valueType==='Array'){
+   			result[index] = deepClone(value)
+   		}else{
+   			result[index] = value
+   		}
+   	}
+   	
+   	return result
   }
   
   
