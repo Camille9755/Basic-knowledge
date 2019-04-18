@@ -1,4 +1,4 @@
-###flex捋一捋
+### flex捋一捋
 	0.flex frog练习
 		http://flexboxfroggy.com/
 		
@@ -82,8 +82,8 @@
 							flex-start：在侧轴的正方向
 							flex-end：    在侧轴的反方向
 							center：		在两边
-							base#ne    基线对齐
-         					stretch		等高布局（项目没有高度）	
+							baseline    基线对齐
+	     					stretch		等高布局（项目没有高度）	
 		项目
 			弹性空间管理
 				flex-grow：弹性因子（默认值为0）
@@ -116,10 +116,10 @@
 			   --.计算收缩因子与基准值乘的总和  
 			   			var a = 每一项flex-shrink*flex-basis之和
 			   --.计算收缩因数
-			                     收缩因数=（项目的收缩因子*项目基准值）/第一步计算总和   
+			            收缩因数=（项目的收缩因子*项目基准值）/第一步计算总和   
 			             var b =  (flex-shrink*flex-basis)/a
 			   --.移除空间的计算
-			                      移除空间= 项目收缩因数 x 负溢出的空间 
+			             移除空间= 项目收缩因数 x 负溢出的空间 
 			             var c =    b * 溢出的空间      
 	
 	7.侧轴富裕空间的管理
@@ -133,7 +133,8 @@
 		flex:1  (flex-basis:0% flex-grow:1 flex-shrink:1)	
 		等分布局	
 
-###响应式布局核心 CSS3媒体查询选择器
+
+### 响应式布局核心 CSS3媒体查询选择器
 	@media 媒体类型  and(关键字) 带条件的媒体属性 and 带条件的媒体属性 {
 		//规则
 	}
@@ -161,7 +162,7 @@
 		and：连接一条查询规则
 		,：连接多条查询规则
 		not：取反
-		
+
 ###多列布局
 
 ###规范

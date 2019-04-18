@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			清除浮动:
+				让浮动的子元素库撑开父级的高度
+				
+				
+				01.直接给父级加高度（扩展性不好）
+		-->
+		
+		
+		<style type="text/css">
+			.box{
+				width:100px;
+				height:100px;
+				background:#ccc;
+			}
+			.wrap {
+			  background:yellow;
+			}
+			.wrap h1{
+			  background:pink;
+			  margin:40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">box</div>
+		<div class="wrap">
+		  <h1>h1</h1>
+		</div>
+	</body>
+</html>
