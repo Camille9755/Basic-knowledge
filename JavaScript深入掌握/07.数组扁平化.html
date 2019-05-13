@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*递归循环、toString（元素都是number才可以）、reduce简化代码、ES6三点运算符
+ 			      仿照underscore定义flatten函数，
+			      并供一些API调用（_.flatten, _.union, _difference）*/
+			
+			var arr = [1, [2, [3, 4]]];
+			console.log(flatten(arr)) // [1, 2, 3, 4]
+			//递归循环
+			function flatten1(arr){
+				var result = []
+				for(var i=0,len=arr.length;i<len;i++){
+					if(Array.isArray(arr[i])){
+						result = result.concat(flatten(arr[i]))
+					}else{
+						result.push(arr[i])
+					}					
+				}
+				return result
+			}
+			//toString（元素都是number才可以）
+			function flatten2(arr){
+				//转换为数字类型
+				return arr.toString().split(",").map((item)=> +item)
+			}
+			//reduce简化代码
+			function flatten3(arr){
+				return arr.reduce((prev,next)=>{
+					return prev.concat(Array.isArray(next)?flatten(next):next)
+				},[])
+			}
+			//ES6三点运算符
+			function flatten4(arr){
+				while(arr.some(item=>Array.isArray(item))){
+					arr = [].concat(...arr)
+				}
+				return arr
+			}
+			
+			//仿照underscore定义flatten函数
+			/*
+			 * 数组扁平化
+			 * @param  {Array} input   要处理的数组
+			 * @param  {boolean} shallow 是否只扁平一层
+			 * @param  {boolean} strict  是否严格处理元素，当遍历数组元素时，如果元素不是数组，
+			 * 	就会对 strict 取反的结果进行判断，如果设置 strict 为 true，就会跳过不进行任何处理，
+			 * 	这意味着可以过滤非数组的元素
+			 * @param  {Array} output  这是为了方便递归而传递的参数
+			 */
+			function flatten(input,shallow,strict,output){
+				output = output || []
+				var id = output.length
+				
+				for(var i=0,len=input.length;i<len;i++){
+					var value = input[i]
+					if(Array.isArray(value)){
+						if(shallow){
+							var j = 0,length = value.length
+							while(j<length){
+								output[id++] = input[j++]
+							}
+						}else{
+							flatten(value,shallow,strict,output)
+							id = output.length
+						}
+					}
+					if(!strict){
+						output[id++] = value
+					}					
+				}
+				
+				return output
+			}
+		</script>
+	</body>
+</html>

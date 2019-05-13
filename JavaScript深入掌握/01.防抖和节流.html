@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>debounce</title>
+	    <style>
+	        #container{
+	            width: 100%; height: 200px; line-height: 200px; text-align: center; color: #fff; background-color: #444; font-size: 30px;
+	        }
+	    </style>
+	</head>
+	<body>
+		<div id="container"></div>
+    	
+		<script>
+			var count = 1;
+			var container = document.getElementById('container');
+			
+			function getUserAction() {
+			    container.innerHTML = count++;
+			    console.log('action')
+			};
+			//防抖函数，触发一次后，n秒不再次触发才执行
+			function debounce(func,wait){
+				var timeout
+				return function(){
+					var context = this
+					
+					var args = arguments
+					clearTimeout(timeout)
+					timeout = setTimeout(()=>{	
+						func.apply(context,args)
+					},wait)
+				}
+			}
+			//container.onmousemove = debounce(getUserAction,1000)
+			//节流函数，不断触发时，n秒执行一次
+			//1.时间戳，首；
+			function throttle(func,wait){
+				var context,args
+				var lastTime = 0
+				return function(){
+					context = this
+					args = arguments
+					var nowTime = +new Date()
+					if(nowTime-lastTime>wait){
+						func.apply(context,args)
+						lastTime = nowTime
+					}
+				}
+			}
+			//container.onmousemove = throttle(getUserAction,1000)
+			//2.定时器，尾；
+			function throttle2(func,wait){
+				var timeout,context,args
+				return function(){
+					context = this
+					args = arguments
+					if(!timeout){
+						timeout = setTimeout(()=>{
+							timeout = null
+							func.apply(context,args)
+						},wait)
+					}
+				}
+			}
+			//container.onmousemove = throttle2(getUserAction,1000)
+			
+			//3.首+尾
+			function throttle3(func,wait){
+				var timeout,context,args,lastTime=0
+				return function(){
+					context = this
+					args = arguments
+					var nowTime = +new Date()
+					
+					var remainTime = wait - (nowTime - lastTime)
+					if(remainTime<=0||remainTime>wait){
+						if(timeout){
+							clearTimeout(timeout)
+							timeout = null
+						}
+						lastTime = nowTime
+						func.apply(context,args)
+					}else if(!timeout){
+						timeout = setTimeout(()=>{
+							lastTime = +new Date()
+							timeout = null
+							func.apply(context,args)							
+						},remainTime)
+					}
+				}
+			}
+			//container.onmousemove = throttle3(getUserAction,1000)
+			//4.首+尾 可选
+			function throttle4(func,wait,options){
+				var timeout,context,args,lastTime=0
+				if(!options) options = {}
+				
+				var throttled = function(){
+					context = this
+					args = arguments
+					var nowTime = +new Date()
+					if(!lastTime && options.leading===false) lastTime = nowTime
+					var remainTime = wait - (nowTime - lastTime)
+					if(remainTime<=0||remainTime>wait){
+						if(timeout){
+							clearTimeout(timeout)
+							timeout = null
+						}
+						lastTime = nowTime
+						func.apply(context,args)
+						if(!timeout) context = args = null
+					}else if(!timeout&&options.trailing!==false){
+						timeout = setTimeout(()=>{
+							lastTime = options.leading === false ? 0 : +new Date()
+							timeout = null
+							func.apply(context,args)	
+							if(!timeout) context = args = null
+						},remainTime)
+					}
+				}
+				throttled.cancel = function() {
+				    clearTimeout(timeout);
+				    previous = 0;
+				    timeout = null;
+				}
+				return throttled
+			}
+			container.onmousemove = throttle4(getUserAction,1000, {
+			   trailing:false
+			})
+		</script>
+	</body>
+</html>

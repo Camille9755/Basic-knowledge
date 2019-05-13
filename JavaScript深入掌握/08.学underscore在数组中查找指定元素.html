@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*findIndex,createIndexFinder,sortedIndex,createIndexOfFinder*/
+			//findIndex
+			function findIndex1(arr,predicate,context){
+				for(var i=0;i<arr.length;i++){
+					if(predicate.call(context,arr[i],i,arr)) return i					
+				}
+				return -1
+			}
+						
+			//createIndexFinder
+			function createIndexFinder(dir){
+				return function(arr,predicate,context){
+					var idx = dir>0?0:arr.length-1
+					for(;idx>=0&&idx<arr.length;idx+=dir){
+						if(predicate.call(context,arr[idx],idx,arr)) return idx
+					}
+					return -1
+				}				
+			}
+			var findIndex = createIndexFinder(1)
+			console.log(findIndex([1,2,3,4,2],(item,i,arr)=>{
+				if(item==2) return true
+			}))
+			
+			//sortedIndex在一个排好序的数组中找到 value对应的位置，保证插入数组后，依然保持有序的状态。
+			function sortedIndex1(arr,value){
+				var low=0,high=arr.length
+				while(low<high){
+					mid = Math.floor((low+high)/2)
+					if(arr[mid]<value) low = mid+1
+					else high = mid 
+				}
+				return high
+			}
+			//console.log(sortedIndex([10, 20, 30, 40, 50], 35))
+			
+			function cb(func,context){
+				if(context==void 0) return func
+				return function(){
+					func.apply(context,arguments)
+				}
+			}
+			function sortedIndex(arr,value,iteratee,context){
+				var iteratee = cb(iteratee,context)
+				var low=0,high=arr.length
+				while(low<high){
+					mid = Math.floor((low+high)/2)
+					if(iteratee(arr[mid])<iteratee(value)) low = mid+1
+					else high = mid 
+				}
+				return high
+			}
+			var stooges = [{name: 'stooge1', age: 10}, {name: 'stooge2', age: 30}];
+
+			var result = sortedIndex(stooges, {name: 'stooge3', age: 20}, function(stooge){
+			    return stooge.age
+			});
+			//console.log(result)
+			
+			//createIndexOfFinder
+			function createIndexOfFinder(dir,precidate){				
+				return function(arr,value,fromIndex){
+					var fromIndex,i
+					
+					if(typeof fromIndex==='number'){
+						if(dir>0){
+							i = fromIndex>=0 ? fromIndex : Math.max(fromIndex+arr.length,0)
+						}else{
+							length = fromIndex>=0? Math.min(fromIndex + 1, arr.length) :fromIndex+arr.length+1
+						}
+					}else if (sortedIndex && idx && length) {
+			            idx = sortedIndex(array, item);
+			            // 如果该插入的位置的值正好等于元素的值，说明是第一个符合要求的值
+			            return array[idx] === item ? idx : -1;
+			        }
+					
+					//对NaN处理
+					if(value!==value){
+						fromIndex = precidate(arr.slice(i,arr.length),isNaN)
+						return fromIndex
+					}
+					
+					for(fromIndex=dir>0?i:length-1;fromIndex>=0&&idx<arr.length;fromIndex+=dir){
+						if(arr[idx]===value) return fromIndex
+					}
+					return -1
+				}	
+			}
+			var indexOf = createIndexOfFinder(1);
+			var lastIndexOf = createIndexOfFinder(-1);
+			
+			var result = lastIndexOf([1, 2, 3, 4, 5, 4], 4);
+			
+			console.log(result) // 3
+			//增加了NaN以后的调用
+			var indexOf = createIndexOfFinder(1, findIndex);
+			var lastIndexOf = createIndexOfFinder(-1, findLastIndex);
+		</script>
+	</body>
+</html>

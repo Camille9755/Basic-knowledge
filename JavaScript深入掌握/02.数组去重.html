@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*双重循环，indexOf,uniqueAPI,filter,object键值对，ES6，特殊类型*/
+			
+			var arr = [1,1,1,'1',2,5,6,'a','A']
+			
+			//双重循环
+			function unique1(a){
+				var res=[]
+				for(var i=0,len=a.length;i<len;i++){
+					var current = a[i]
+					for(j=0;j<res.length;j++){
+						if(res[j]===current) break
+					}
+					if(j===res.length) res.push(current)
+				}
+				return res
+			}
+			console.log(unique1(arr))
+			
+			//indexOf
+			function unique2(a){
+				var res = []
+				for(var i=0,len=a.length;i<len;i++){
+					if(res.indexOf(a[i])===-1){
+						res.push(a[i])
+					}
+				}
+				return res
+			}
+			console.log(unique2(arr))
+			
+			//uniqueAPI,根据一个参数 isSorted 判断传入的数组是否是已排序的，
+			//如果为 true，我们就判断相邻元素是否相同，
+			//如果为 false，我们就使用 indexOf 进行判断
+			function unique3(a,isSorted){
+				var res = []
+				var seen
+				for(var i=0,len=a.length;i<len;i++){
+					if(isSorted){
+						if(!i||seen!==a[i])	res.push(a[i])
+						seen = a[i]
+					}
+					else if(res.indexOf(a[i])===-1)	res.push(a[i])
+				}
+				return res
+			}
+			console.log(unique3(arr,true))
+			
+			//uniqueAPI优化，不区分大小写
+			function unique4(a,isSorted,iteratee){
+				var res = []
+				var seen
+				var tmp = []
+				
+				for(var i=0,len=a.length;i<len;i++){
+					var value = a[i]
+					var computed = iteratee ?iteratee(value,i,a):value
+					if(iteratee){
+						if(tmp.indexOf(computed)===-1){
+							tmp.push(computed)
+							res.push(value)
+						}
+					}
+					else if(isSorted){
+						if(!i||seen!==a[i])	res.push(a[i])
+						seen = a[i]
+					}
+					else if(res.indexOf(a[i])===-1)	res.push(a[i])
+				}
+				return res
+			}
+			console.log(unique4(arr,true,(item)=>typeof item=='string'?item.toLowerCase():item))
+			//filter
+			function unique5(a){
+				var res = a.filter((item,index,a)=>{
+					return a.indexOf(item)===index
+				})
+				return res
+			}
+			console.log(unique5(arr))
+			//object键值对,可以判断数组元素是object的情况
+			var arr2 = [{value:1},{value:2},{value:1}]
+			function unique6(a){
+				var obj = {}
+				return a.filter((item,index,a)=>{
+					return obj.hasOwnProperty(typeof item + JSON.stringify(item))?false
+						:obj[typeof item + JSON.stringify(item)]=true
+				})
+			}
+			console.log(unique6(arr2))
+			
+			//ES6 Set和Map
+			function unique7(a){
+				return [...new Set(a)]
+			}
+			console.log(unique7(arr))
+			function unique8(a){
+				var tmp = new Map()
+				return a.filter((item)=>!tmp.has(item)&&tmp.set(item,1))
+			}
+			console.log(unique8(arr))
+		</script>
+	</body>
+</html>
