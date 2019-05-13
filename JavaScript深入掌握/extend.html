@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="whichType.js"></script>
+		<script>
+			var obj1 = {
+			    a: 1,
+			    b: {
+			        c: 2
+			    }
+			}
+			
+			var obj2 = {
+			    b: {
+			        c: [5],
+			
+			    }
+			}
+			
+			var d = extend(true, obj1, obj2)
+			console.log(d);
+			
+			function extend(){
+				var target = arguments[0]||{},
+					i=1,
+					len = arguments.length,
+					deep = false,
+					current,name,copy,src,flag,clone
+				//判断第一个参数，决定是否进行深拷贝
+				if(typeof target==='boolean'){
+					deep = target
+					target = arguments[i]||{}
+					i++
+				}
+				//target要是对象或者函数才可以进行复制
+				if(typeof target!=='object'&&typeof target!=='function'){
+					target = {}
+				}
+				for(;i<len;i++){
+					current = arguments[i]		
+					if(current!=null){
+						for(name in current){
+							//目标属性值
+							src = target[name]
+							//待复制属性值
+							copy = current[name]
+							
+							//解决循环引用
+							if(target===copy){
+								continue
+							}
+							
+							if(deep && copy && (isPlainObject(copy)||(flag=Array.isArray(copy)))){
+								//对类型不一致问题进行处理
+								if(flag){
+									flag = false
+									clone = src && Array.isArray(src)?src:[]
+								}else{
+									clone = src && isPlainObject(src)?src:{}
+								}
+								
+								target[name] = extend(deep,clone,copy)
+							}else if(copy!==undefined){
+								target[name] = copy
+							}
+						}
+					}					
+				}
+				return target
+			}
+			
+		</script>
+	</body>
+</html>

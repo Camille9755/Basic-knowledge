@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj = {
+				name:'obj',
+				tec:{
+					read:1,
+					write:2
+				}
+			}
+			//浅拷贝，Array.prototype.concat(),Array.prototype.slice(),Object.assign(obj)
+			function shallowCopy(obj){
+				if(typeof obj!=='object') return
+				var newObj = obj instanceof Array?[]:{}
+				for(var key in obj){
+					if(obj.hasOwnProperty(key)) newObj[key] = obj[key]
+				}
+				return newObj
+			}
+			/*var obj1=shallowCopy(obj)
+			obj1.name = 'obj1'
+			obj1.tec.read=4
+			console.log(obj)
+			console.log(obj1)*/
+			//深拷贝，JSON.parse(JSON.stringify(obj))
+			function deepCopy(obj){
+				if(typeof obj !=='object') return 
+				var newObj = obj instanceof Array?[]:{}
+				for(var key in obj){	
+					//if(obj.hasOwnProperty(key))
+					newObj[key] = typeof obj[key]==='object'?deepCopy(obj[key]):obj[key]
+				}
+				return newObj
+			}
+			var obj2=deepCopy(obj)
+			obj2.name = 'obj2'
+			obj2.tec.read=6
+			console.log(obj)
+			console.log(obj2)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>debounce</title>
+	    <style>
+	        #container{
+	            width: 100%; height: 200px; line-height: 200px; text-align: center; color: #fff; background-color: #444; font-size: 30px;
+	        }
+	    </style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<button id="button">点击取消</button>
+    	
+		<script>
+			var count = 1;
+			var container = document.getElementById('container');
+			
+			function getUserAction() {
+			    container.innerHTML = count++;
+			    console.log('action')
+			};
+			
+			function debounce(func, wait, immediate) {
+
+			    var timeout;
+			
+			    var debounced = function () {
+			        var context = this;
+			        var args = arguments;
+			       
+			        if (timeout) clearTimeout(timeout);
+			        if (immediate) {	
+			        	var callNow =!timeout;
+			            timeout = setTimeout(function(){
+			                timeout = null;
+			            }, wait)
+			            
+    					if (callNow) func.apply(context, args);
+			        }
+			        else {
+			            timeout = setTimeout(function(){
+			                func.apply(context, args)
+			            }, wait);
+			        }
+			    }
+			    debounced.cancel = function() {
+			        clearTimeout(timeout);
+			        timeout = null;
+			    };
+			    return debounced;
+			}
+					
+			var setUseAction = debounce(getUserAction, 10000, true);
+
+			container.onmousemove = setUseAction;
+			
+			document.getElementById("button").addEventListener('click', function(){
+			    setUseAction.cancel();
+			})
+			var item = {value:2}
+			console.log(typeof item + JSON.stringify(item))
+			console.log(undefined==null)
+			console.log({value:1}.toString())
+			console.log(debounce.toString())
+		</script>
+	</body>
+</html>
