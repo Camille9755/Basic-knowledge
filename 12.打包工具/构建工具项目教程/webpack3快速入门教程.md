@@ -1,6 +1,6 @@
 ## webpack快速入门教程
 ### 1、了解Webpack相关
-	* 什么是webpack
+* 什么是webpack
 	    * Webpack是一个模块打包器(bundler)。
 	    * 在Webpack看来, 前端的所有资源文件(js/json/css/img/less/...)都会作为模块处理
 	    * 它将根据模块的依赖关系进行静态分析，生成对应的静态资源
@@ -44,8 +44,8 @@
     - webpack src/js/entry.js dist/bundle.js  
   * 查看页面效果
 ### 5、添加js/json文件
-	* 创建第二个js: src/js/math.js
-	    ``` 
+* 创建第二个js: src/js/math.js
+     ``` 
 	    export function square(x) {
 	      return x * x;
 	    }
@@ -54,14 +54,14 @@
 	      return x * x * x;
 	    }
 	    ```
-    * 创建json文件: src/json/data.json
+* 创建json文件: src/json/data.json
 	    ```
 	    {
 	      "name": "Tom",
 	      "age": 12
 	    }
 	    ```
-    * 更新入口js : entry.js
+* 更新入口js : entry.js
 	    ```
 	    import {cube} from './math'
 	    import data from '../json/data.json'
@@ -76,8 +76,8 @@
 	    ```
     * 查看页面效果
 ### 6、使用webpack配置文件
-	* 创建webpack.config.js
-	    ```
+* 创建webpack.config.js
+    ```
 	    const path = require('path'); //path内置的模块，用来设置路径。
 	    
 	    module.exports = {
@@ -88,18 +88,18 @@
 	      }
 	    };
 	    ```
-    * 配置npm命令: package.json
+* 配置npm命令: package.json
 	    ```
 	    "scripts": {
 	      "build": "webpack"
 	    },
 	    ```
     * 打包应用
-	    ```
+    ```
 	    npm run build
 	    ```
 ### 7、打包css和图片文件
-   * 安装样式的loader
+* 安装样式的loader
     ```
     npm install css-loader style-loader --save-dev
     npm install file-loader url-loader --save-dev
@@ -170,8 +170,8 @@
 	  * 解决办法：
 	  	* 使用publicPath : 'dist/js/' //设置为index.html提供资源的路径,设置完后找所有的资源都会去当前目录下找。
 	  	* 将index.html放在dist/js/也可以解决。
-###8、自动编译打包
-    * 利用webpack开发服务器工具: webpack-dev-server
+### 8、自动编译打包
+* 利用webpack开发服务器工具: webpack-dev-server
     * 下载
         - npm install --save-dev webpack-dev-server
     * webpack配置
@@ -182,7 +182,7 @@
         - "start": "webpack-dev-server --open"
     * 编译打包应用并运行
         - npm start
-###9、使用webpack插件
+### 9、使用webpack插件
   * 常用的插件
     * 使用html-webpack-plugin根据模板html生成引入script的页面
     * 使用clean-webpack-plugin清除dist文件夹
