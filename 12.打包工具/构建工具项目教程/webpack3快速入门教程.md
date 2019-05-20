@@ -1,5 +1,5 @@
 ## webpack快速入门教程
-###1、了解Webpack相关
+### 1、了解Webpack相关
 	* 什么是webpack
 	    * Webpack是一个模块打包器(bundler)。
 	    * 在Webpack看来, 前端的所有资源文件(js/json/css/img/less/...)都会作为模块处理
@@ -18,11 +18,11 @@
 		* HtmlWebpackPlugin: 自动生成HTML文件并
 		* UglifyJSPlugin: 压缩js文件
 	
-###2、学习文档 : 
+### 2、学习文档 : 
   * webpack官网: http://webpack.github.io/
   * webpack2文档(英文): https://webpack.js.org/
   * webpack2文档(中文): https://doc.webpack-china.org/
-###3、开启项目
+### 3、开启项目
   * 初始化项目：
 	  * 生成package.json文件
 	  * 
@@ -35,7 +35,7 @@
   * 安装webpack
 	- npm install webpack -g  //全局安装
     - npm install webpack --save-dev  //局部安装
-###4、编译打包应用
+### 4、编译打包应用
   * 创建入口src/js/ : entry.js
 	- document.write("entry.js is work");
   * 创建主页面: dist/index.html
@@ -43,7 +43,7 @@
   * 编译js
     - webpack src/js/entry.js dist/bundle.js  
   * 查看页面效果
-###5、添加js/json文件
+### 5、添加js/json文件
 	* 创建第二个js: src/js/math.js
 	    ``` 
 	    export function square(x) {
@@ -75,7 +75,7 @@
 	    webpack src/js/entry.js dist/bundle.js
 	    ```
     * 查看页面效果
-###6、使用webpack配置文件
+### 6、使用webpack配置文件
 	* 创建webpack.config.js
 	    ```
 	    const path = require('path'); //path内置的模块，用来设置路径。
@@ -98,7 +98,7 @@
 	    ```
 	    npm run build
 	    ```
-###7、打包css和图片文件
+### 7、打包css和图片文件
    * 安装样式的loader
     ```
     npm install css-loader style-loader --save-dev
