@@ -133,7 +133,7 @@ function select_sort(input){
 ```js
 function partition(arr, left ,right) {   // 分区操作
   var pivot = left,                      // 设定基准值（pivot）,即以最左元素为主元
-      index = pivot + 1;
+      index = pivot + 1;                 //index代表分割位置
   for (var i = left + 1; i <= right; i++) {
       if (arr[i] < arr[pivot]) {
           swap(arr, i, index);
@@ -141,9 +141,13 @@ function partition(arr, left ,right) {   // 分区操作
       }        
   }
   swap(arr, pivot, index - 1);          // 最后把主元放回正确位置
-  return index-1;
+  return index-1;			// 有index-1个元素小于基准值
 }
-
+//划分算法的含义：首先将最左边的元素设为基准值，在循环内部，比较当前元素与基准值大小，
+//如果小于基准值，就把当前元素放在分割位置上，并且index++标记小于基准值的值的个数+1
+//最后，有index-1个元素小于基准值，并且被放在了1--(index-1)的位置上
+//这个时候，交换基准值和下标为index-1的值，那么index-1就是最终的基准值的位置
+//返回index-1，经过划分算法后，0--(index-2)值小于基准值，index---(arr.length-1)大于基准值
 
 function swap(arr, i, j) {
   var temp = arr[i];
