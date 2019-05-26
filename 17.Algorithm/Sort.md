@@ -45,19 +45,19 @@ function selectSort(arr){
 当序列已排好序的时候，元素比较的次数最少，比较次数为 n - 1 次，每一个元素只需要和前一个元素比较即可，当序列是按反序排列，那么比较次数最多，比较次数为 n*(n-1)/2 。  
 元素赋值次数为等于比较次数加上 n - 1。  
 ```js
-function InsertionSort(arr){
-	var len=arr.length;
-	for(var i=1;i<len;i++){         //for(var i=len-1;i>0;i--){
-		var curr=arr[i];
-		var j=i;
-		while(j>0&&arr[j-1]>curr){
-				                           //while(j<len&&arr[j-1]<curr){
-			arr[j]=arr[j-1];
-			j--;
-		}
-		arr[j]=curr;
-	}
-	return arr;
+function insertionSort(arr) {
+  const len = arr.length;
+  let current, pointer;
+  for (let i = 1; i < len; i += 1) {
+    current = arr[i];
+    pointer = i;
+    while(pointer >= 0 && current < arr[pointer - 1]) { // 每次向前比较
+      arr[pointer] = arr[pointer - 1]; // 前一项大于指针项，则向前移动一项
+      pointer -= 1;
+    }
+    arr[pointer] = current; // 指针项还原成当前项
+  }
+  return arr;
 }
 ```
 ##### 4.希尔排序
