@@ -23,19 +23,19 @@ function bubbleSort(arr) {
 时间复杂度：O(n^2)  
 算法稳定性：不稳定  
 ```js
-function select_sort(input){
-    var i, j, min, temp;
-    for(i = 0; i < input.length - 1; i++){
-    	min = i;
-    	for(j = i + 1; j < input.length; j++){
-      		if(input[min] > input[j])
-       			min = j;
-   			}
-   			temp = input[min];
-    		input[min] = input[i];
-    		input[i] = temp;
-  	}
-  	return input;
+function selectSort(arr){
+	var len = arr.length
+	var minIndex
+	for(var i=0;i<len-1;i++){
+		minIndex = i
+		for(j=i+1;j<len;j++){
+			if(arr[j]<arr[minIndex])
+				minIndex = j
+			if(minIndex===i) continue
+		}
+		swap(arr,minIndex,i)
+	}
+	return arr
 }
 ```
 ##### 3.插入排序
