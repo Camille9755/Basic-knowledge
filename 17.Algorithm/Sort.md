@@ -28,11 +28,13 @@ function selectSort(arr){
 	var minIndex
 	for(var i=0;i<len-1;i++){
 		minIndex = i
+		//内层循环找出最小元素的索引值
 		for(j=i+1;j<len;j++){
 			if(arr[j]<arr[minIndex])
 				minIndex = j
 			if(minIndex===i) continue
 		}
+		//交换当前元素与最小元素的位置
 		swap(arr,minIndex,i)
 	}
 	return arr
