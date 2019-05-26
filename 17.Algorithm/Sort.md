@@ -4,25 +4,18 @@
 时间复杂度：O(n^2)
 算法稳定性：稳定
 ```js
-function advanceBubbleSort1(arr){
-    var len = arr.length;
-   	var flag;          
-   // 设置一个标记，如果某一轮没有交换，表示已经排好序了。不必再循环遍历。
-    for(var i = 1; i <= len - 1; i++){
-        flag = false;
-        for(var j = 0; j < len - i; j++){
-          	if(arr[j] > arr[j + 1]){
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                flag = true;
-            }
-        }
-        if(flag === false){
-           	 break;
-        }
+function bubbleSort(arr) {
+  const len = arr.length;
+  //外层代表已经排好序的元素的个数
+  for (let i = 0; i < len; i += 1) {
+    //内层找出最大的元素放在数组的最右端
+    for (let j = 0; j < len - 1 - i; j += 1) {
+      if (arr[j] > arr[j + 1]) { // 比较相邻元素
+        swap(arr, j, j + 1);
+      }
     }
-    return arr;
+  }
+  return arr;
 }
 ```
 ##### 2.选择排序
