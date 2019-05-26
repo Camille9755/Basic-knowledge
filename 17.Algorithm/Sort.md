@@ -157,7 +157,7 @@ function swap(arr, i, j) {
 我们可以看到，整个划分都在原数组上进行，不需要引进额外的辅助数组。  
 快速排序算法需要以划分算法为核心：  
 ```js
-function quickSort(arr, left, right) {
+function quickSort(arr, left=0, right=arr.length) {
   var len = arr.length,
       partitionIndex;
 
