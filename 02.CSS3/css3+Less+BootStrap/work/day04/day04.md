@@ -1,4 +1,4 @@
-###day04复习
+### day04复习
 
 	百分比都是参照于谁？  
 	元素垂直水平居中方案  
@@ -40,12 +40,13 @@
 	2.css3动画基础
 		animation-name：代表关键帧的名字
 			关键帧：
+			```
 			   @keyframes animiationName{
-	                 keyframes-selector{
-	                      css-style;
-	                 }
-    			}
-		
+				 keyframes-selector{
+				      css-style;
+				 }
+    			   }
+		```
 		animation-duration：一个动画周期的时长
 		animation-timing-function：作用于一个关键帧周期而非整个动画周期
 		animation-delay：代表动画的延迟（这是一个动画外的属性）
