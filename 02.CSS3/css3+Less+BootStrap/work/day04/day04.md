@@ -45,7 +45,7 @@
 				 keyframes-selector{
 				      css-style;
 				 }
-    			   }
+			}
 		```
 		animation-duration：一个动画周期的时长
 		animation-timing-function：作用于一个关键帧周期而非整个动画周期
@@ -66,9 +66,9 @@
 		
 		关键帧：
 			   @keyframes animiationName{
-	                 keyframes-selector{
-	                      css-style;
-	                 }
+				 keyframes-selector{
+				      css-style;
+				 }
     			}
     			
 			keyframes-selector可以是关键帧form（0%）和to（100%）
