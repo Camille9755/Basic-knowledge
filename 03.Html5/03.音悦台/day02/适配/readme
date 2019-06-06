@@ -1,4 +1,4 @@
 em:自身font-size，font-size可继承
 rem：根标签font-size，谷歌默认16px
 rem适配：创建新style节点，设置html的font-size为document.documentElement.ClientWidth/16
-1物理像素的实现：媒体查询/viewport适配
+1物理像素的实现：媒体查询，在不同dpr设备下，指定transform：scaleY(1/dpr)
