@@ -1,5 +1,11 @@
 ﻿# Vue项目总结
 
+## 技术选型  
+1.前台的数据处理及交互是基于vue技术栈，利用vue-router实现单页应用，利用vuex管理状态  
+&emsp;使用better-scroll实现滑动及swiper实现轮播  
+2.前后台的数据交互部分利用mockjs模拟后台数据，使用postman测试接口，数据的获取是用axios  
+3.采用ES6模块化，并利用webpack和vue-cli构建工程化项目，利用eslint规范语法
+4.CSS预编译器使用Less  
 
 ## 1.vuex管理状态
 	集中管理vue多个组件共享的状态及从后台获取的数据
