@@ -1,4 +1,10 @@
-﻿# Vue项目总结
+# Vue项目总结  
+
+## 岗位职责   
+* 注册/登录功能，实现手机号及用户名两种登录方式，对表单进行前台验证以减少请求次数，获取用户信息实现自动登录，退出登录等功能  
+* 设计JSON数据结构，利用mockjs模拟点餐页商家列表，实现前后端分离开发  
+* 异步获取数据，对点餐页面进行前台渲染，实现食品列表滑动及左右联动滑动效果  
+* 实现购物车功能，利用vuex管理状态，实现食品详情页与购物车中数据的同步  
 
 ## 技术选型  
 1.前台的数据处理及交互是基于vue技术栈，利用vue-router实现单页应用，利用vuex管理状态  
@@ -7,17 +13,20 @@
 3.采用ES6模块化，并利用webpack和vue-cli构建工程化项目，利用eslint规范语法  
 4.CSS预编译器使用Less  
 
-## 1.vuex管理状态
-	集中管理vue多个组件共享的状态及从后台获取的数据
-	state：数据
-	getters：从state中读数据进行计算
-	组件通过mapstate()/$store.state获取state中的数据
-	组件通过mapActions()/$store.dispatch()分发action
-	action触发mutation commit(RECEIVE.{shops:result.data})
-		在action中发送ajax请求获取后台数据
-	mutation直接更新界面 [RECEIVE](state,{address}){state.address=address}
-		利用插件查看vuex状态和mutation过程
-## 2.登录注册功能实现
+## 登录/注册流程  
+### 1)界面相关效果  
+a. 切换登陆方式  
+b. 手机号合法检查  
+c. 倒计时效果  
+d. 切换显示或隐藏密码  
+e. 前台验证提示  
+### 2) 前后台交互功能  
+a. 动态一次性图形验证码  
+b. 动态一次性短信验证码  
+c. 短信登陆  
+d. 密码登陆  
+e. 获取用户信息,实现自动登陆  
+f. 退出登陆  
 	1). 2种方式
 	   手机号/短信验证码登陆
 	   用户名/密码/图片验证码登陆
@@ -30,6 +39,17 @@
 	3）手机号登录实现
 		利用正则表达式对手机号合法性进行检查
 		发送验证码以后，循环定时器做倒计时效果，为防止多次点击，在定时器开始之前先清一下定时器。
+## 1.vuex管理状态
+	集中管理vue多个组件共享的状态及从后台获取的数据
+	state：数据
+	getters：从state中读数据进行计算
+	组件通过mapstate()/$store.state获取state中的数据
+	组件通过mapActions()/$store.dispatch()分发action
+	action触发mutation commit(RECEIVE.{shops:result.data})
+		在action中发送ajax请求获取后台数据
+	mutation直接更新界面 [RECEIVE](state,{address}){state.address=address}
+		利用插件查看vuex状态和mutation过程
+	
 ## 3.异步显示数据
 	1). 异步显示数据效果的编码流程
 	    ajax
