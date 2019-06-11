@@ -7,16 +7,16 @@
 * 实现购物车功能，利用vuex管理状态，实现食品详情页与购物车中数据的同步  
 
 ## 技术选型  
-&emsp;1.前台的数据处理及交互是基于vue技术栈，利用vue-router实现单页应用，利用vuex管理状态  
-&emsp;使用better-scroll实现滑动及swiper实现轮播  
-&emsp;2.前后台的数据交互部分利用mockjs模拟后台数据，使用postman测试接口，数据的获取是用axios  
-&emsp;3.采用ES6模块化，并利用webpack和vue-cli构建工程化项目，利用eslint规范语法  
-&emsp;4.CSS预编译器使用Less  
+&emsp;1. 前台的数据处理及交互是基于vue技术栈，利用vue-router实现单页应用，利用vuex管理状态  
+&emsp; 使用better-scroll实现滑动及swiper实现轮播  
+&emsp;2. 前后台的数据交互部分利用mockjs模拟后台数据，使用postman测试接口，数据的获取是用axios  
+&emsp;3. 采用ES6模块化，并利用webpack和vue-cli构建工程化项目，利用eslint规范语法  
+&emsp;4. CSS预编译器使用Less  
 
 ## 登录/注册流程  
 ### 1)界面相关效果  
-- a. 切换登陆方式  
-- b. 手机号合法检查  
+&emsp;a. 切换登陆方式  
+&emsp;b. 手机号合法检查  
 &emsp;c. 倒计时效果  
 &emsp;d. 切换显示或隐藏密码  
 &emsp;e. 前台验证提示  
