@@ -13,48 +13,54 @@
 &emsp;3. 采用ES6模块化，并利用webpack和vue-cli构建工程化项目，利用eslint规范语法  
 &emsp;4. CSS预编译器使用Less  
 
-## 登录/注册流程  
-### 1)界面相关效果  
-&emsp;a. 切换登陆方式：
-         * 在data中添加一个标志位logWay，true代表密码登录，false代表短信登录，
-         * 在Login组件中，绑定点击事件`@click='logWay=true'`修改logWay的值，并给当前选中的方式添加样式(改变背景颜色等)
-&emsp;b. 手机号合法检查  
-&emsp;c. 倒计时效果  
-&emsp;d. 切换显示或隐藏密码  
-&emsp;e. 前台验证提示  
-### 2) 前后台交互功能  
-&emsp;a. 动态一次性图形验证码  
-&emsp;b. 动态一次性短信验证码  
-&emsp;c. 短信登陆  
-&emsp;d. 密码登陆  
-&emsp;e. 获取用户信息,实现自动登陆  
-&emsp;f. 退出登陆  
-
-
-	1). 2种方式
-	   手机号/短信验证码登陆
-	   用户名/密码/图片验证码登陆
-	2). 登陆的基本流程
-	   表单前台验证, 如果不通过, 提示，就可以减少请求次数
-	   发送ajax请求, 得到返回的结果
-	   根据结果的标识(code)来判断登陆请求是否成功
-	       1: 不成功, 显示提示
-	       0. 成功, 保存用户信息, 返回到上次路由
-	3）手机号登录实现
-		利用正则表达式对手机号合法性进行检查
-		发送验证码以后，循环定时器做倒计时效果，为防止多次点击，在定时器开始之前先清一下定时器。
-## 1.vuex管理状态
-	集中管理vue多个组件共享的状态及从后台获取的数据
-	state：数据
-	getters：从state中读数据进行计算
-	组件通过mapstate()/$store.state获取state中的数据
-	组件通过mapActions()/$store.dispatch()分发action
-	action触发mutation commit(RECEIVE.{shops:result.data})
-		在action中发送ajax请求获取后台数据
-	mutation直接更新界面 [RECEIVE](state,{address}){state.address=address}
-		利用插件查看vuex状态和mutation过程
+## 1.登录/注册流程  
+### 登陆的基本流程  
+* 表单前台验证, 如果不通过, 提示，就可以减少请求次数  
+* 发送ajax请求, 得到返回的结果  
+* 根据结果的标识(code)来判断登陆请求是否成功  
+	* 1: 不成功, 显示提示  
+	* 0: 成功, 保存用户信息, 返回到上次路由  
 	
-## 3.异步显示数据
+### 1) 切换登陆方式：
+* 在data中添加一个标志位loginWay，true代表密码登录，false代表短信登录  
+* 在Login组件中，绑定点击事件`@click='logWay=true'`修改loginWay的值  
+* 给当前选中的方式添加class：on样式(改变背景颜色等)  
+
+### 2)手机号合法检查  
+* 给input框指定maxlength="11"限制长度，并v-model收集phoneNumber（和API文档一致）  
+
+### 3)动态一次性短信验证码,倒计时效果  
+* 添加一个计算属性rightPhone，是一个布尔值，利用正则表达式对手机号合法性进行检查，检测手机号是否以1开头的11位数字  
+* 添加一个button，仅在手机号rightPhone为真时显示，为假时隐藏，给这个按钮绑定click事件获取验证码getCode()  
+	* getCode逻辑：  
+	* 定义computeTime计时，初始值60，每秒减一，为零时清除定时器 (为防止多次点击，在定时器开始之前先清一下定时器）
+	* 发送ajax请求  
+	* result.code===1时，提示result.msg，并清除定时器  
+
+### 4) 密码登陆---动态一次性图形验证码，验证码点击刷新的实现
+* `this.$refs.captcha.src = 'http://localhost:4000/captcha?time=' + Date.now()`地址有变化才会发请求，所以加上时间戳
+   
+### 5) 获取用户信息,实现自动登陆  
+* 在后台路由中，将登陆的user_id存到session中，并且指定了cookie的max-age为1天
+* 在前台的app中异步获取登录用户的信息`dispatch('getUserInfo')`
+* 在vuex中定义异步的action,`getUserInfo`
+
+### 6) 退出登陆  
+* 引入mint-UI,显示提示框
+
+
+## 2.设计JSON数据结构，利用mockjs模拟
+* MockServer中mock数据接口
+* 定义接口请求函数
+* 在vuex中管理数据状态
+
+## 3.购物车功能的实现
+* 抽取cartControl组件，定义添加和减少食品数量的方法
+* 计算总价和总数量，判断是否达到起送条件，切换类显示
+* 购物车列表滑动Better-Scroll
+
+
+## 4.异步显示数据：（遇到的问题）
 	1). 异步显示数据效果的编码流程
 	    ajax
 	      ajax请求函数
@@ -82,7 +88,7 @@
 	       在组件对象中： this.$set(obj, 'xxx', value)才有数据绑定
 		另外要注意防止事件冒泡到上一级 .stop
 
-## 4.列表滑动及左右联动滑动
+## 5.列表滑动及左右联动滑动
     1). 基本滑动:
         使用better-scroll,基本原理:内容超过包裹区域才会滑动
         创建BScroll对象的时机：要在数据变化，异步更新界面之后
@@ -102,9 +108,8 @@
     			this.scrollY>=top&&this.scrollY<this.tios[index+1]		
     3). 点击左侧列表项, 右侧滑动到对应位置
     		得到滚动目标的坐标，更新目标Y轴坐标，利用scrollTo平滑滚动到指定位置
-## 5.定义评价过滤的方法
-		利用数组的filter方法，参数传rating，返回判断条件为true的rating组成的数组
-## 6.项目的优化
+
+## 项目的优化
 		1). 缓存路由组件对象：在浏览器内存中将组件对象缓存起来
 			<keep-alive>
 				<router-view />
@@ -130,3 +135,13 @@
 			// return moment(value).format(format || 'YYYY-MM-DD HH:mm:ss')
 			return format(value, formatStr || 'YYYY-MM-DD HH:mm:ss')
 			})
+## vuex管理状态
+	集中管理vue多个组件共享的状态及从后台获取的数据
+	state：数据
+	getters：从state中读数据进行计算
+	组件通过mapstate()/$store.state获取state中的数据
+	组件通过mapActions()/$store.dispatch()分发action
+	action触发mutation commit(RECEIVE.{shops:result.data})
+		在action中发送ajax请求获取后台数据
+	mutation直接更新界面 [RECEIVE](state,{address}){state.address=address}
+		利用插件查看vuex状态和mutation过程
