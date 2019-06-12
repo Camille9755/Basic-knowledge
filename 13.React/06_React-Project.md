@@ -1,5 +1,40 @@
 # React项目总结
-## 1.注册登录功能
+## 项目开发准备
+    1). 项目描述: 整体业务功能/功能模块/主体的技术/开发模式
+    2). 技术选型: 数据展现/用户交互/组件化, 后端, 前后台交互, 模块化, 项目构建/工程化, 其它
+    3). API接口: 接口的4个组成部分, 接口文档, 对/调/测接口
+
+## 聊天功能
+### 1 .socket.io
+    包装的H5 WebSocket和轮询---> 兼容性/编码简洁性
+    包含2个包:
+      socket.io: 用于服务器端
+      socket.io-client: 用于客户端
+    基本思想: 远程自定义事件机制
+    	io: 服务器端核心的管理对象
+        socket: 客户端与服务器的连接对象
+    	服务器端：
+    		io.on监视连接(当有一个客户连接上时回调)
+        	on(name, function(data){}): 绑定监听，接收消息
+       		emit(name, data):发送消息
+### 2. 聊天组件功能:
+    后台接口
+    chat静态组件
+    发送消息与接收消息
+    获取消息列表显示
+    接收消息显示
+    完善列表显示
+### 3. 消息列表
+    对消息进行分组保存, 且只保存每个组最后一条消息
+    对于对象容器和数组容器的选择
+    数组排序
+
+### 4. 未读消息数量显示 
+    每个组的未读数量统计
+    总未读数量统计显示
+    查看消息后, 更新未读数量
+
+## 注册登录功能
 ### 1. 注册/登陆后台处理
     1). models.js： 包含n 个能操作mongodb 数据库集合的model 的模块
        1. 连接数据库
@@ -59,36 +94,6 @@
     前台发送ajax请求根据cookie中的userid查询获取对应的user信息
     redux中管理user信息状态
 
-## 4.聊天功能
-### 1 .socket.io
-    包装的H5 WebSocket和轮询---> 兼容性/编码简洁性
-    包含2个包:
-      socket.io: 用于服务器端
-      socket.io-client: 用于客户端
-    基本思想: 远程自定义事件机制
-    	io: 服务器端核心的管理对象
-        socket: 客户端与服务器的连接对象
-    	服务器端：
-    		io.on监视连接(当有一个客户连接上时回调)
-        	on(name, function(data){}): 绑定监听，接收消息
-       		emit(name, data):发送消息
-### 2. 聊天组件功能:
-    后台接口
-    chat静态组件
-    发送消息与接收消息
-    获取消息列表显示
-    接收消息显示
-    完善列表显示
-### 3. 消息列表
-    对消息进行分组保存, 且只保存每个组最后一条消息
-    对于对象容器和数组容器的选择
-    数组排序
-
-### 4. 未读消息数量显示 
-    每个组的未读数量统计
-    总未读数量统计显示
-    查看消息后, 更新未读数量
-
 # 关于React需要知道的
 ## 1.React组件的三大属性：state，props，refs
 	state：页面的显示是根据组件的state属性的数据来显示
@@ -134,3 +139,43 @@
 			值: 高阶函数
 			作用: 包装组件生成容器组件, 让被包装组件能与redux进行通信
 			使用: connect(mapStateToProps, mapDispatchToProps)(Xxx)
+
+
+
+# 其它要点
+## 1. git管理项目的常用操作
+    1). 创建本地仓库
+        创建.gitignore配置文件
+        git init
+        git add *
+        git commit -m "xxx"
+    2). 创建github远程仓库
+        New Repository
+        指定名称
+        创建
+    3). 将本地仓库推送到远程仓库
+        git remote add origin https://github.com/zxfjd3g/170612_JSAdvance.git 关联远程仓库
+        git push origin master
+    
+    4). push本地的更新 
+        git add *
+        git commit -m "xxx"
+        git push origin master
+    
+    5). pull远程的更新
+            git pull origin master
+            
+    6). 克隆github上的项目:
+        git clone https://github.com/zxfjd3g/xxx.git
+
+## 2. 搭建项目
+    1). 使用create-react-app脚手架创建模板项目(工程化)
+    2). 引入antd-mobile, 并实现按需打包和自定义主题
+    3). 引入react-router-dom(v4): 
+        HashRouter/Route/Switch
+        history: push()/replace()
+    4). 引入redux
+        redux/react-redux/redux-thunk
+        redux: createStore()/combineReducers()/applyMiddleware()
+        react-redux: <Provider store={store}> / connect()(Xxx)
+        4个重要模块: reducers/store/actions/action-types
