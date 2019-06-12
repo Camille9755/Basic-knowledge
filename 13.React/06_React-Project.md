@@ -34,6 +34,89 @@
     总未读数量统计显示
     查看消息后, 更新未读数量
 
+## 聊天功能细化
+### 1.后台：不是我负责，了解一下代码结构就可以了
+### 2.chat发消息
+* 点击发送就触发handleSend函数(:userid是在main映射路由时指定的)
+* handleSend逻辑：
+	* 1.给输入框绑定Onchange收集状态数据
+	* 2.创建一个异步action（sendMsg）用于发消息
+	* 3.清除输入数据，指定input的value值为content
+
+### 3.收发消息
+* 在action中引入Socket.io
+* 封装initIO函数
+* 在sendMsg中发消息
+
+### 4.登录一个账户后，获取用户相关的MsgList显示
+> 功能：在用户登录的时候，获取与当前用户相关的消息列表，新建了一个保存聊天状态的reducer叫做chat
+
+
+* 定义接口请求函数 reqChatMsgList、reqReadMsg
+* redux:产生聊天状态的reducer
+	* 在action中封装获取消息列表的函数getMsgList
+	* 登录之前调用register、login、getUser
+	* reducer中处理RECEIVE_MSG_LIST的相关状态
+	
+### 5.显示某个聊天的消息列表：主要是chat.jsx
+* 接收chat状态值
+* 从chat中获取User及chatMsgs
+* 计算chat_id,对chatMsgs进行过滤得到msgs
+* 获取对方头像，调用msgs.map循环产生列表
+
+**注意：**在没有当前用户的时候返回null，即在没有获取数据的时候暂时不作处理
+
+
+### 6.发消息和接收消息的显示
+* action.js initIo时加判断条件分发action
+* 接收一个消息的同步action：receiveMsg
+* reducer中RECEIVE_MSG的逻辑
+
+
+### 7.表情功能
+* 表情
+* 添加一个状态isShow
+* Grid的引入
+* 在ComponentWillMount中初始化表情列表数据
+* 根据状态显示、隐藏
+* 有一个bug，要异步解决一下，toggleShow中
+* 更新状态时isShow为false，在handleShow中添加isShow状态
+
+
+**显示的优化**：
+* 1.chat.jsx中NavBar指定icon并添加点击事件OnleftClick
+* 2.消息滑动到底部：ComponentDidMount中初始化，ComponentDidUpdate中更新
+
+
+### 8.显示分组的消息列表：message.jsx
+* 读取user及chat状态，取user及user.chatMsg
+* 对chatMsg进行分组，根据chat_id，封装getLastMsgs（有逻辑）
+* 将lastMsg遍历显示
+* 点击单条记录可以聊天
+
+
+### 9.显示聊天组件未读消息数：统计每一个聊天分组的未读数量
+* 给Item标签指定extra->unReadCount
+* 在getLastMsg添加unReadCount的逻辑
+* 保存已统计的未读数量
+* 累加unReadCount，保存在最新的lastMsg上
+
+
+### 10.总未读数量
+* reducer中，chat状态里，RECEIVE_MSG_LIST统计unReadCount
+* actions中，receiveMsgList需要接受userid,调用的地方getMsgList改一下，RECEIVE_MSG也要改unReadCount
+* 在NavFooter中，badge添加unReadCount属性，在main中传unReadCount
+
+
+### 11.更新未读消息数：要发请求
+* 在chat组件中，ComponentDidMount中发请求更新，**为了防止在界面退出时还有未读数，ComponentWillMount也要调用readMsg**
+* 定义readMsg异步action，传入并调用
+* 定义一个actionType，MSG_READ,定义同步action：msgRead
+* 准备数据count ，from ，to
+* 在reducer中添加case，注意三点运算符的使用
+
+**缺点：**要发请求，所以能看到未读消息消失的过程，未解决
+
 ## 注册登录功能
 ### 1. 注册/登陆后台处理
     1). models.js： 包含n 个能操作mongodb 数据库集合的model 的模块
