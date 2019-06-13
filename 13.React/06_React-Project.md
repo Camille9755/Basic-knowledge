@@ -75,25 +75,24 @@
 
 
 ### 7.表情功能
-* 表情
-* 添加一个状态isShow
-* Grid的引入
 * 在ComponentWillMount中初始化表情列表数据
-* 根据状态显示、隐藏
-* 有一个bug，要异步解决一下，toggleShow中
-* 更新状态时isShow为false，在handleShow中添加isShow状态
+* 在state中，添加一个状态isShow
+* Grid(antd-mobile的组件)的引入
+* 根据状态显示、隐藏toggleShow
+* 有一个bug，要异步解决一下，toggleShow中异步手动派发resize事件,解决表情列表显示的bug
+* 更新状态时isShow为false，在handleSend中添加isShow状态
 
 
 **显示的优化**：
-* 1.chat.jsx中NavBar指定icon并添加点击事件OnleftClick
+* 1.chat.jsx中NavBar指定icon并添加点击事件OnleftClick，就可以回退到上一个页面了
 * 2.消息滑动到底部：ComponentDidMount中初始化，ComponentDidUpdate中更新
 
 
 ### 8.显示分组的消息列表：message.jsx
-* 读取user及chat状态，取user及user.chatMsg
+* 读取user及chat状态，取user及users.chatMsg
 * 对chatMsg进行分组，根据chat_id，封装getLastMsgs（有逻辑）
 * 将lastMsg遍历显示
-* 点击单条记录可以聊天
+* 点击单条记录可以聊天`this.props.history.push(`/chat/${targetUserId}`)`
 
 
 ### 9.显示聊天组件未读消息数：统计每一个聊天分组的未读数量
