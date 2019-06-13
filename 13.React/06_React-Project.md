@@ -55,7 +55,7 @@
 * 定义接口请求函数 reqChatMsgList、reqReadMsg
 * redux:产生聊天状态的reducer
 	* 在action中封装获取消息列表的函数getMsgList
-	* 登录之前调用register、login、getUser
+	* 登录之前调用`register、login、getUser`
 	* reducer中处理RECEIVE_MSG_LIST的相关状态
 	
 ### 5.显示某个聊天的消息列表：主要是chat.jsx
