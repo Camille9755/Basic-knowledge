@@ -62,7 +62,8 @@
 * 接收chat状态值
 * 从chat中获取User及chatMsgs
 * 计算chat_id,对chatMsgs进行过滤得到msgs
-* 获取对方头像，调用msgs.map循环产生列表
+* 获取对方头像（注意没有数据时要设置为null防止报错）
+* 在模板中，调用msgs.map循环产生聊天消息列表
 
 **注意**：在没有当前用户的时候返回null，即在没有获取数据的时候暂时不作处理
 
